@@ -38,6 +38,8 @@ function UndanganContent() {
           <div className="absolute bottom-4 right-4 text-rose-300 text-3xl rotate-180">✿</div>
           <div className="absolute top-4 right-4 text-rose-300 text-3xl rotate-90">✿</div>
           <div className="absolute bottom-4 left-4 text-rose-300 text-3xl -rotate-90">✿</div>
+          <div className="absolute top-4 left-4 text-rose-300 text-3xl">✿</div>
+          <div className="absolute bottom-4 right-4 text-rose-300 text-3xl rotate-180">✿</div>
           {/* --------------------------- */}
         
           {/* Header */}
