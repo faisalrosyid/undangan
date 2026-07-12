@@ -32,7 +32,14 @@ function UndanganContent() {
       ) : (
         // ISI UNDANGAN
         <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full border border-rose-100 space-y-6">
-          
+       
+          {/* --- KODE DEKORASI BUNGA --- */}
+          <div className="absolute top-4 left-4 text-rose-300 text-3xl">✿</div>
+          <div className="absolute bottom-4 right-4 text-rose-300 text-3xl rotate-180">✿</div>
+          <div className="absolute top-4 right-4 text-rose-300 text-3xl rotate-90">✿</div>
+          <div className="absolute bottom-4 left-4 text-rose-300 text-3xl -rotate-90">✿</div>
+          {/* --------------------------- */}
+        
           {/* Header */}
           <div className="text-center">
             <h1 className="text-4xl font-serif text-rose-900">Wildan & Lulu</h1>
