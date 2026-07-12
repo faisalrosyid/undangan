@@ -2,84 +2,44 @@
 import { useState, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-function UndanganContent() {
-  const [isOpen, setIsOpen] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const searchParams = useSearchParams();
-  const namaTamu = searchParams.get('to') || 'Tamu Undangan';
+<div className="min-h-screen bg-stone-50 flex items-center justify-center p-4">
+  {/* Kartu Utama dengan background putih dan bayangan lembut */}
+  <div className="relative bg-white rounded-3xl shadow-xl p-8 max-w-sm w-full border border-stone-100 overflow-hidden text-center">
+    
+    {/* Dekorasi Bunga di sudut */}
+    <div className="absolute top-4 left-4 text-rose-200 text-3xl">✿</div>
+    <div className="absolute bottom-4 right-4 text-rose-200 text-3xl rotate-180">✿</div>
 
-  const handleBuka = () => {
-    setIsOpen(true);
-    if (audioRef.current) audioRef.current.play();
-  };
-
-  return (
-    <div className="min-h-screen bg-stone-100 flex items-center justify-center p-4">
-      <audio ref={audioRef} loop src="/Feast - Nina.mp3" />
-      
-      {!isOpen ? (
-        // LAYAR DEPAN
-        <div className="text-center animate-fade-in">
-          <p className="text-stone-500 italic">Kepada Yth:</p>
-          <h2 className="text-3xl font-serif font-bold text-rose-900 my-4">{namaTamu}</h2>
-          <button 
-            onClick={handleBuka}
-            className="px-8 py-3 bg-rose-700 text-white rounded-full shadow-lg hover:bg-rose-800 transition"
-          >
-            Buka Undangan
-          </button>
-        </div>
-      ) : (
-        // ISI UNDANGAN
-        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full border border-rose-100 space-y-6">
-       
-          {/* --- KODE DEKORASI BUNGA --- */}
-          <div className="absolute top-4 left-4 text-rose-300 text-3xl">✿</div>
-          <div className="absolute bottom-4 right-4 text-rose-300 text-3xl rotate-180">✿</div>
-          <div className="absolute top-4 right-4 text-rose-300 text-3xl rotate-90">✿</div>
-          <div className="absolute bottom-4 left-4 text-rose-300 text-3xl -rotate-90">✿</div>
-          <div className="absolute top-4 left-4 text-rose-300 text-3xl">✿</div>
-          <div className="absolute bottom-4 right-4 text-rose-300 text-3xl rotate-180">✿</div>
-          {/* --------------------------- */}
-        
-          {/* Header */}
-          <div className="text-center">
-            <h1 className="text-4xl font-serif text-rose-900">Wildan & Lulu</h1>
-            <p className="text-sm text-stone-500 mt-2">15 Agustus 2026</p>
-          </div>
-
-          {/* Galeri / Foto */}
-          <div className="h-64 w-full bg-stone-200 rounded-xl flex items-center justify-center text-stone-400">
-            [Foto Pengantin]
-          </div>
-
-          {/* Detail Acara */}
-          <div className="space-y-4 text-center">
-            <p>Halo, <strong>{namaTamu}</strong>!</p>
-            <p className="text-stone-600 text-sm leading-relaxed">
-              Dengan penuh kebahagiaan, kami mengundang Anda untuk menjadi bagian dari hari bahagia kami.
-            </p>
-          </div>
-
-          {/* RSVP */}
-          <a 
-            href={`https://wa.me/6289690223352?text=Halo, saya ${namaTamu} konfirmasi hadir di acara Wildan & Lulu.`}
-            target="_blank"
-            className="block w-full py-3 bg-green-600 text-white text-center rounded-xl hover:bg-green-700 transition font-medium"
-          >
-            Konfirmasi Kehadiran (WhatsApp)
-          </a>
-
-        </div>
-      )}
+    {/* Judul dengan font serif agar mewah */}
+    <div className="mb-8">
+      <h1 className="text-4xl font-serif text-rose-950 mb-2">Wildan <span className="text-rose-300">&</span> Lulu</h1>
+      <div className="w-16 h-0.5 bg-rose-200 mx-auto mt-4"></div>
     </div>
-  );
-}
 
-export default function Home() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <UndanganContent />
-    </Suspense>
-  );
-}
+    {/* Foto (Tambahkan class object-cover agar foto tidak gepeng) */}
+    <div className="mb-8 overflow-hidden rounded-2xl shadow-inner border border-stone-100">
+      <img 
+        src="/foto-pengantin.jpg" 
+        alt="Pengantin" 
+        className="w-full h-64 object-cover transform hover:scale-105 transition duration-500"
+      />
+    </div>
+
+    {/* Pesan Sapaan */}
+    <div className="space-y-4 mb-8">
+      <p className="text-stone-500 font-medium italic">Halo, {namaTamu}!</p>
+      <p className="text-stone-600 text-sm leading-relaxed px-2">
+        Kami mengundang Anda untuk merayakan momen bahagia pernikahan kami. Kehadiran Anda adalah kehormatan bagi kami.
+      </p>
+    </div>
+
+    {/* Tombol RSVP yang lebih modern */}
+    <a 
+      href={`https://wa.me/6281234567890?text=Halo, saya ${namaTamu} konfirmasi hadir.`}
+      target="_blank"
+      className="block w-full py-4 bg-rose-900 text-white rounded-xl shadow-lg hover:bg-rose-950 transition-all font-semibold tracking-wide uppercase text-sm"
+    >
+      Konfirmasi Kehadiran
+    </a>
+  </div>
+</div>
