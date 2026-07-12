@@ -29,7 +29,7 @@ function UndanganContent() {
         {/* Foto */}
         <div className="mb-8 aspect-[3/4] w-full max-w-xs mx-auto overflow-hidden rounded-2xl shadow-inner border border-stone-100">
           <img 
-            src="/DSC_0111" 
+            src="/DSC_0111.jpg" 
             alt="Pengantin" 
             className="w-full h-full object-cover"
           />
